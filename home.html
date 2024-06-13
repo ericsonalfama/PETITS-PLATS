@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les petits plats</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Shrikhand&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" aria-label="Les Petits Plats Home Page" id="logo_link"><img src="assets/logo/logo.png" class="logo" alt="Les petits plats logo" aria-label="Les petits plats Home Page" href="index.html"/></a>
+          <div class="title_and_search_bar_container">
+            <h1>CHERCHEZ PARMI PLUS DE 1500 RECETTES DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES</h1> 
+            <div class="search_bar_container">
+                <input class="form-control border-0" type="search" placeholder="Rechercher une recette, un ingrédient, ..." id="headerSearch">
+                <ion-icon name="search-outline" class="search-outline"></ion-icon>
+                 
+            </div>
+       
+          </div>
+
+      </header>
+      <main id="main">
+          <div class="filter_section row">
+              <!-- Dropdown Ingredients -->
+              <div class="dropdown-container" id="ingredientsDropdown">
+                  <button class="dropdown-toggle" onclick="toggleDropdown(this.parentNode)">
+                    Ingrédients <i class="fal fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-menu">
+                    <div class="search-container-parent">  
+                        <form class="search-container border-1 d-flex align-items-center" id="search-container-2">
+                            <input class="form-control border- search-input" type="search" value="" id="ingredientSearch">
+                            <ion-icon name="search-outline" class="search-outline-2"></ion-icon>
+                        </form>
+                    </div>
+                    <ul id="ingredientList" class="dropdown-list">
+                        <!-- Les ingrédients seront ajoutés ici -->
+                    </ul>
+                </div>
+            </div>            
+            <!-- Dropdown Appareils -->
+            <div class="dropdown-container" id="appliancesDropdown">
+                <button class="dropdown-toggle" onclick="toggleDropdown(this.parentNode)">
+                    Appareils <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-menu">
+                    <div class="search-container-parent">  
+                        <div class="search-container border-1 d-flex align-items-center" id="search-container-2">
+                            <input class="form-control border-0 search-input" type="search" value="" id="appliancesearch">
+                            <ion-icon name="search-outline" class="search-outline-2"></ion-icon>
+                        </div>
+                    </div>
+                    <ul id="applianceList" class="dropdown-list">
+                        <!-- Les ingrédients seront ajoutés ici -->
+                    </ul>
+                </div>
+            </div>           
+            <!-- Dropdown Ustensils -->
+            <div class="dropdown-container" id="ustensilsDropdown">
+                <button class="dropdown-toggle" onclick="toggleDropdown(this.parentNode)">
+                    Ustensiles <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-menu">
+                    <div class="search-container-parent">  
+                        <div class="search-container border-1 d-flex align-items-center" id="search-container-2">
+                            <input class="form-control border-0 search-input" type="search" value="" id="utensilSearch">
+                            <ion-icon name="search-outline" class="search-outline-2"></ion-icon>
+                        </div>
+                    </div>
+                    <ul id="utensilList" class="dropdown-list">
+                        <!-- Les ingrédients seront ajoutés ici -->
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="total_recipes_counter">
+                <h2 id="total_recipes_counter_text"> </h2>
+            </div>
+            
+        </div>
+        <div class="tags" id="activeFilters"></div>
+        <section id="recipeResults">
+            <!-- Recipe results will be displayed here -->
+        </section>
+      </main>
+      <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+      <script src="/scripts/main.js"></script>
+      <script src="/scripts/utils.js"></script>
+      <script src="/scripts/recipe_card.js"></script>
+      <script src="/scripts/ui.js"></script>
+      <script src="/scripts/tags.js"></script>
+      <script src="/scripts/filter.js"></script>
+      <script src="/scripts/data.js"></script>
+      <script src="/scripts/recipe_counter.js"></script>
+      <script src="scripts/dropdown.js"></script>
+</body>
+</html>

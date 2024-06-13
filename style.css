@@ -1,0 +1,430 @@
+/* section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin: 20px 20px;
+}
+
+li {
+    list-style: none;
+}
+
+ul {
+    height: 200px;
+    overflow: scroll;
+    
+} */
+
+/* -----------------------------------------
+HEADER (Logo / Title / Search bar)
+-------------------------------------------*/
+body {
+  background-color: #EDEDED;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+header { 
+  background-image: url('./assets/header_image.png'); 
+  background-size: cover; 
+  background-position: center; 
+  height: 600px; /* Set the height as per your requirement */ 
+}
+
+header h1 {
+  color: #FFD15B;
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  padding-left: 10vw;
+  padding-right: 10vw;
+}
+
+.logo {
+  margin: 50px 50px 0px 50px;
+  width: 207px;
+}
+
+.title_and_search_bar_container {
+  height: 100%;
+  align-content: center;
+  padding-left: 16vw;
+  padding-right: 16vw;
+}
+
+.search-container {
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+.search_bar_container {
+  display: flex;
+ /* grid-template-columns: 990px 1fr;*/
+  background-color: #fff;
+  align-items: center;
+  width: 100%;
+  padding: 8px;
+  border-radius: 11px;
+  margin-top: 2vw;
+}
+
+.search-outline-container {
+  text-align: end;
+}
+
+.search-outline {
+  color: #fff;
+  font-size: 40px;
+  font-weight: 100;
+  background-color: #000;
+  border-radius: 11px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.search-outline:hover {
+  color: #000;
+  font-size: 40px;
+  font-weight: 100;
+  background-color: #FFD15B;
+  border-radius: 11px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+/* -----------------------------------------
+FILTER SECTION (Dropdowns and Recipes counter)
+-------------------------------------------*/
+.filter_section {
+  padding: 25px 0px 25px 0px ;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 2fr;
+  column-gap: 50px;
+}
+
+/* DROPDOWN*/
+
+/* Styles pour le bouton du dropdown */
+.dropdown-toggle {
+  background-color: #ffffff;
+  border: none;
+  padding: 17px 16px 17px 16px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 11px;
+  width: 195px;
+  font-family: 'manrope';
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Styles pour l'icône de chevron */
+.dropdown-toggle i {
+  margin-left: 10px;
+}
+
+/* Styles pour la liste déroulante */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  width: 195px;
+  z-index: 1;
+  transition: max-height 0.5s ease;
+}
+
+/* Styles pour afficher la liste déroulante */
+.dropdown-menu.show {
+  display: block;
+  transition: max-height 3s ease;
+  margin-top: -15px;
+  border: none;
+  border-radius: 11px;
+  transform: translateY(0);
+}
+
+/* Styles pour la zone de recherche */
+.search-container-parent {
+  margin-left: 0;
+  margin-right: 0;
+  padding: 10px;
+  align-content: center;
+}
+
+#search-container-2 {
+  /* padding: 10px; */
+  border-bottom: 1px solid #ccc;
+}
+
+.search-container input[type="text"] {
+  width: calc(100% - 30px);
+  padding: 5px;
+  border: none;
+  outline: none;
+}
+
+.search-container input[type="text"]::placeholder {
+  color: #aaa;
+}
+
+.search-container i {
+  color: #aaa;
+  cursor: pointer;
+}
+
+/* Styles pour la liste des ingrédients */
+#ingredientList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  font-family: 'manrope';
+  font-size: 14px;
+  font-weight: 400;
+}
+
+#ingredientList li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+#ingredientList li:hover {
+  background-color: #FFD15B;
+}
+
+/* Styles pour la liste des appareils */
+#applianceList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  font-family: 'manrope';
+  font-size: 14px;
+  font-weight: 400;
+}
+
+#applianceList li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+#applianceList li:hover {
+  background-color: #FFD15B;
+}
+
+
+/* Styles pour la liste des ustensils */
+#utensilList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  font-family: 'manrope';
+  font-size: 14px;
+  font-weight: 400;
+}
+
+#utensilList li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+#utensilList li:hover {
+  background-color: #FFD15B;
+}
+/* 
+.li-hide {
+  display: none;
+}
+
+.li-show {
+  display: block;
+} */
+
+/* RECIPES COUNTER*/
+
+.total_recipes_counter {
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-align: end;
+  align-content: center;
+}
+
+.total_recipes_counter h2{
+  font-size: 21px;
+
+}
+
+/* -----------------------------------------
+RECIPES SECTION (Cards)
+-------------------------------------------*/
+main {
+display: block;
+margin-left: auto;
+margin-right: auto;
+justify-content: center;
+display: grid;
+align-items: center;
+}
+
+#recipeResults {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 40px;
+  row-gap: 40px;
+  padding-bottom: 50px;
+}
+
+.recipes_card {
+  width: 380px;
+  display: block;
+  border-radius: 21px;
+  box-shadow: 0px 14px 34px #00000004;
+  background-color: #fff;
+}
+
+.card_image_container {
+  position: relative;
+}
+
+.card_image_container img {
+  height: 253px;
+  width: 100%;
+  object-fit: cover;
+  justify-content: center;
+  border-radius: 21px 21px 0px 0px;
+}
+
+.preparation_time {
+  position: absolute;
+  background-color: #ffc107;
+  width: 63px;
+  text-align: center;
+  border-radius: 21px;
+  font-size: 12px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  right: 20px;
+  top: 20px;
+}
+
+.recipe_container {
+  display: block;
+  padding: 21px 21px 0px 21px;
+}
+
+/* .ingredients_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0px 21px 0px 21px;
+} */
+
+.ingredients_container {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 0px 21px 0px 21px;
+}
+
+.ingredients_container ul{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  list-style: none;
+  padding: 0;
+  column-gap: 20px;
+}
+
+.recipe_container h1 {
+  font-family: anton;
+  font-size: 18px;
+  padding-bottom: 20px;
+  padding-top: 10px;
+}
+
+.subtitle {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #7A7A7A;
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  letter-spacing: 2px;
+}
+
+.subtitle-2 {
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  color: #1B1B1B;
+  margin: 0px;
+}
+
+#ingredients {
+  grid-column: span 2;
+}
+
+
+.ingredients p {
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  color: #7A7A7A;
+}
+
+.description {
+  font-size: 14px;
+  color: #1B1B1B;
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.quantity_hide{
+  visibility: hidden;
+}
+
+#recipeResults {
+ display: grid;
+ grid-template-columns: repeat(3fr);
+}
+
+.message {
+  grid-column: span 3;
+  text-align: center;
+  font-size: 24px;
+  padding: 0px 100px;
+  font-weight: 200;
+  font-family: 'Manrope';
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 10px 0px 50px 0px;
+  }
+  .tag {
+    background-color: #ffc107;
+    padding: 15px 12px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    width: 200px;
+    justify-content: space-between;
+  }
+  .tag span {
+    margin-right: 5px;
+  }
+  .tag button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    line-height: 1;
+  }
