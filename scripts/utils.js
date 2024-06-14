@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 //----------------------------------------------------
@@ -14,10 +15,10 @@ function normalizeText(text) {
 // Fonction pour récupérer les appareils
 function getDescription() {
   const allDescriptionsSet = new Set();
-  recipes.forEach((recipe) => {
+  for (const recipe of recipes) {
     const normalizedDescription = normalizeText(recipe.description);
     allDescriptionsSet.add(normalizedDescription);
-  });
+  }
   const allDescriptions = Array.from(allDescriptionsSet);
 
   return allDescriptions;
