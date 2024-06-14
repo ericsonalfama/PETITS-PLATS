@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-unused-vars */
 //----------------------------------------------------
@@ -84,7 +85,7 @@ function createIngredientsContainer(recipe) {
 
   const ingredientsList = document.createElement('ul');
 
-  recipe.ingredients.forEach((ingredient) => {
+  for (const ingredient of recipe.ingredients) {
     const ingredientItem = document.createElement('li');
     ingredientItem.classList.add('ingredients');
 
@@ -100,7 +101,7 @@ function createIngredientsContainer(recipe) {
     ingredientItem.appendChild(quantity);
 
     ingredientsList.appendChild(ingredientItem);
-  });
+  }
 
   container.appendChild(subtitle);
   container.appendChild(ingredientsList);

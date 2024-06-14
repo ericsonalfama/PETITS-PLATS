@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable no-restricted-syntax */
 /* eslint-disable max-len */
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-unused-vars */
@@ -8,10 +10,10 @@
 function generateRecipesCard(recipesArray, recipesSection) {
   const t0 = performance.now();
 
-  recipesArray.forEach((recipe) => {
+  for (const recipe of recipesArray) {
     const recipeCard = createRecipeCard(recipe);
     recipesSection.appendChild(recipeCard);
-  });
+  }
 
   const t1 = performance.now();
   console.log(`Execution time: ${t1 - t0} milliseconds`);
@@ -23,11 +25,11 @@ function generateRecipesCard(recipesArray, recipesSection) {
 function hideUndefined() {
   const quantityElements = document.querySelectorAll('.quantity');
 
-  quantityElements.forEach((element) => {
+  for (const element of quantityElements) {
     if (element.textContent.trim() === '' || element.textContent.trim() === 'undefined') {
       element.style.display = 'none';
     }
-  });
+  }
 }
 
 //-----------------------------------------------------------
@@ -71,11 +73,15 @@ function updateDropdownLists(filteredRecipes, ingredientSearchTerm, applianceSea
   const utensils = new Set();
 
   // Remplir les sets avec des valeurs normalisées
-  filteredRecipes.forEach((recipe) => {
-    recipe.ingredients.forEach((ing) => ingredients.add(normalizeText(ing.ingredient)));
+  for (const recipe of filteredRecipes) {
+    for (const ing of recipe.ingredients) {
+      ingredients.add(normalizeText(ing.ingredient));
+    }
     appliances.add(normalizeText(recipe.appliance));
-    recipe.ustensils.forEach((ust) => utensils.add(normalizeText(ust)));
-  });
+    for (const ust of recipe.ustensils) {
+      utensils.add(normalizeText(ust));
+    }
+  }
 
   // Conversion des sets en tableaux et tri
   const sortedIngredients = Array.from(ingredients).sort((a, b) => a.localeCompare(b, 'fr', { ignorePunctuation: true }));
@@ -84,7 +90,7 @@ function updateDropdownLists(filteredRecipes, ingredientSearchTerm, applianceSea
 
   // Update de la liste des ingrédients
   ingredientList.innerHTML = '';
-  sortedIngredients.forEach((ingredient) => {
+  for (const ingredient of sortedIngredients) {
     if (!activeIngredients.has(ingredient) && ingredient.includes(ingredientSearchTerm)) {
       const li = document.createElement('li');
       li.textContent = ingredient;
@@ -95,11 +101,11 @@ function updateDropdownLists(filteredRecipes, ingredientSearchTerm, applianceSea
         filterRecipes();
       });
     }
-  });
+  }
 
   // Mise à jour de la liste des appliances
   applianceList.innerHTML = '';
-  sortedAppliances.forEach((appliance) => {
+  for (const appliance of sortedAppliances) {
     if (!activeAppliances.has(appliance) && appliance.includes(applianceSearchTerm)) {
       const li = document.createElement('li');
       li.textContent = appliance;
@@ -107,14 +113,14 @@ function updateDropdownLists(filteredRecipes, ingredientSearchTerm, applianceSea
       li.addEventListener('click', () => {
         activeAppliances.add(appliance);
         addFilterTag('appliance', appliance, activeIngredients, activeAppliances, activeUtensils);
-        filterRecipes();
+        filteredRecipes();
       });
     }
-  });
+  }
 
   // Atualizando a lista de utensílios
   utensilList.innerHTML = '';
-  sortedUtensils.forEach((utensil) => {
+  for (const utensil of sortedUtensils) {
     if (!activeUtensils.has(utensil) && utensil.includes(utensilSearchTerm)) {
       const li = document.createElement('li');
       li.textContent = utensil;
@@ -125,5 +131,5 @@ function updateDropdownLists(filteredRecipes, ingredientSearchTerm, applianceSea
         filterRecipes();
       });
     }
-  });
+  }
 }
