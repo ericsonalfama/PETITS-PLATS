@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 /* eslint-disable no-unused-vars */
 //----------------------------------------------------
 // GÉRÉR DROPDOWN
@@ -6,7 +7,7 @@
 // Fonction pour fermer tous les autres dropdowns
 function closeOtherDropdowns(currentDropdown) {
   const dropdowns = document.querySelectorAll('.dropdown-container');
-  dropdowns.forEach((dropdown) => {
+  for (const dropdown of dropdowns) {
     if (dropdown !== currentDropdown) {
       const dropdownMenu = dropdown.querySelector('.dropdown-menu');
       const chevronIcon = dropdown.querySelector('.dropdown-toggle i');
@@ -15,7 +16,7 @@ function closeOtherDropdowns(currentDropdown) {
       chevronIcon.classList.remove('fa-chevron-up');
       chevronIcon.classList.add('fa-chevron-down');
     }
-  });
+  }
 }
 
 // Fonction pour afficher/cacher le dropdown
