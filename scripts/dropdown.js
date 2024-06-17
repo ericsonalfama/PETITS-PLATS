@@ -20,11 +20,33 @@ function closeOtherDropdowns(currentDropdown) {
 
 // Fonction pour afficher/cacher le dropdown
 function toggleDropdown(dropdown) {
-  closeOtherDropdowns(dropdown); // Ferme tous les autres dropdowns
   const dropdownMenu = dropdown.querySelector('.dropdown-menu');
-  const chevronIcon = dropdown.querySelector('.dropdown-toggle i');
+  const chevronIcon = dropdown.querySelector('.fa-solid');
 
-  dropdownMenu.classList.toggle('show');
-  chevronIcon.classList.toggle('fa-chevron-down');
-  chevronIcon.classList.toggle('fa-chevron-up');
+  if (dropdownMenu.classList.contains('show')) {
+    dropdownMenu.classList.remove('show');
+    chevronIcon.classList.remove('fa-chevron-up');
+    chevronIcon.classList.add('fa-chevron-down');
+  } else {
+    closeOtherDropdowns(dropdown);
+    dropdownMenu.classList.add('show');
+    chevronIcon.classList.remove('fa-chevron-down');
+    chevronIcon.classList.add('fa-chevron-up');
+  }
 }
+
+// Fermer le dropdown avec clique à l'extérieur ou avec la touche ESC
+document.addEventListener('click', (event) => {
+  const isClickInside = event.target.closest('.dropdown-container');
+
+  if (!isClickInside) {
+    closeOtherDropdowns(null);
+  }
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    closeOtherDropdowns(null);
+  }
+});
+
