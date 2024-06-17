@@ -4,12 +4,15 @@
 // NORMALISER LA CHAÎNE DE CARACTÈRES
 //----------------------------------------------------
 function normalizeText(text) {
-  return text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
+  return text
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .trim()
+    .split(' ')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
 }
-
-/* function normalizeText(text) {
-    return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
-} */
 
 // Fonction pour récupérer les appareils
 function getDescription() {
