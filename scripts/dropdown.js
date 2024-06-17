@@ -49,4 +49,3 @@ document.addEventListener('keydown', (event) => {
     closeOtherDropdowns(null);
   }
 });
-
