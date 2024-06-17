@@ -31,13 +31,13 @@
           <div class="filter_section row">
               <!-- Dropdown Ingredients -->
               <div class="dropdown-container" id="ingredientsDropdown">
-                  <button class="dropdown-toggle" onclick="toggleDropdown(this.parentNode)">
-                    Ingrédients <i class="fal fa-chevron-down"></i>
+                  <button class="dropdown-toggle-button" onclick="toggleDropdown(this.parentNode)">
+                    Ingrédients <i class="fa-solid fa-chevron-down"></i>
                 </button>
                 <div class="dropdown-menu">
                     <div class="search-container-parent">  
                         <form class="search-container border-1 d-flex align-items-center" id="search-container-2">
-                            <input class="form-control border- search-input" type="search" value="" id="ingredientSearch">
+                            <input class="form-control border-0 search-input" type="search" value="" id="ingredientSearch">
                             <ion-icon name="search-outline" class="search-outline-2"></ion-icon>
                         </form>
                     </div>
@@ -48,8 +48,8 @@
             </div>            
             <!-- Dropdown Appareils -->
             <div class="dropdown-container" id="appliancesDropdown">
-                <button class="dropdown-toggle" onclick="toggleDropdown(this.parentNode)">
-                    Appareils <i class="fas fa-chevron-down"></i>
+                <button class="dropdown-toggle-button" onclick="toggleDropdown(this.parentNode)">
+                    Appareils <i class="fa-solid fa-chevron-down"></i>
                 </button>
                 <div class="dropdown-menu">
                     <div class="search-container-parent">  
@@ -65,8 +65,8 @@
             </div>           
             <!-- Dropdown Ustensils -->
             <div class="dropdown-container" id="ustensilsDropdown">
-                <button class="dropdown-toggle" onclick="toggleDropdown(this.parentNode)">
-                    Ustensiles <i class="fas fa-chevron-down"></i>
+                <button class="dropdown-toggle-button" onclick="toggleDropdown(this.parentNode)">
+                    Ustensiles <i class="fa-solid fa-chevron-down"></i>
                 </button>
                 <div class="dropdown-menu">
                     <div class="search-container-parent">  
@@ -102,5 +102,6 @@
       <script src="/scripts/data.js"></script>
       <script src="/scripts/recipe_counter.js"></script>
       <script src="scripts/dropdown.js"></script>
+      <script src="https://kit.fontawesome.com/c602fe77e3.js" crossorigin="anonymous"></script>
 </body>
 </html>

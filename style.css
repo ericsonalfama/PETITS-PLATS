@@ -107,7 +107,7 @@ FILTER SECTION (Dropdowns and Recipes counter)
 /* DROPDOWN*/
 
 /* Styles pour le bouton du dropdown */
-.dropdown-toggle {
+.dropdown-toggle-button {
   background-color: #ffffff;
   border: none;
   padding: 17px 16px 17px 16px;
@@ -123,7 +123,7 @@ FILTER SECTION (Dropdowns and Recipes counter)
 }
 
 /* Styles pour l'icône de chevron */
-.dropdown-toggle i {
+.dropdown-toggle-button i {
   margin-left: 10px;
 }
 
@@ -159,6 +159,7 @@ FILTER SECTION (Dropdowns and Recipes counter)
 #search-container-2 {
   /* padding: 10px; */
   border-bottom: 1px solid #ccc;
+  border-radius: .25rem;
 }
 
 .search-container input[type="text"] {
@@ -240,14 +241,6 @@ FILTER SECTION (Dropdowns and Recipes counter)
 #utensilList li:hover {
   background-color: #FFD15B;
 }
-/* 
-.li-hide {
-  display: none;
-}
-
-.li-show {
-  display: block;
-} */
 
 /* RECIPES COUNTER*/
 

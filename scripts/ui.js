@@ -88,7 +88,7 @@ function updateDropdownLists(filteredRecipes, ingredientSearchTerm, applianceSea
   const sortedAppliances = Array.from(appliances).sort((a, b) => a.localeCompare(b, 'fr', { ignorePunctuation: true }));
   const sortedUtensils = Array.from(utensils).sort((a, b) => a.localeCompare(b, 'fr', { ignorePunctuation: true }));
 
-  // Update de la liste des ingrédients
+  // Update de la liste des ingrédients, appliances et ustensils
   ingredientList.innerHTML = '';
   for (const ingredient of sortedIngredients) {
     if (!activeIngredients.has(ingredient) && ingredient.includes(ingredientSearchTerm)) {
@@ -103,7 +103,6 @@ function updateDropdownLists(filteredRecipes, ingredientSearchTerm, applianceSea
     }
   }
 
-  // Mise à jour de la liste des appliances
   applianceList.innerHTML = '';
   for (const appliance of sortedAppliances) {
     if (!activeAppliances.has(appliance) && appliance.includes(applianceSearchTerm)) {
@@ -113,12 +112,11 @@ function updateDropdownLists(filteredRecipes, ingredientSearchTerm, applianceSea
       li.addEventListener('click', () => {
         activeAppliances.add(appliance);
         addFilterTag('appliance', appliance, activeIngredients, activeAppliances, activeUtensils);
-        filteredRecipes();
+        filterRecipes();
       });
     }
   }
 
-  // Atualizando a lista de utensílios
   utensilList.innerHTML = '';
   for (const utensil of sortedUtensils) {
     if (!activeUtensils.has(utensil) && utensil.includes(utensilSearchTerm)) {
