@@ -5,10 +5,12 @@
 // FONCTION POUR RECHERCHER/FILTRER RECETTES
 //----------------------------------------------------
 function filterRecipes() {
+  console.time('filterRecipes');
+
   const headerSearch = document.getElementById('headerSearch');
   const headerSearchTerm = normalizeText(headerSearch.value);
 
-  const filteredRecipes = recipes.filter((recipe) => {
+  const filteredRecipes = recipes.reduce((acc, recipe) => {
     const matchesHeaderSearch = !headerSearchTerm
             || normalizeText(recipe.name).includes(headerSearchTerm)
             || normalizeText(recipe.description).includes(headerSearchTerm)
@@ -18,12 +20,16 @@ function filterRecipes() {
 
     const matchesIngredientSearch = [...activeIngredients].every((ai) => recipe.ingredients.some((ing) => normalizeText(ing.ingredient).includes(ai)));
 
-    const matchesappliancesearch = [...activeAppliances].every((ai) => normalizeText(recipe.appliance).includes(ai));
+    const matchesApplianceSearch = [...activeAppliances].every((ai) => normalizeText(recipe.appliance).includes(ai));
 
     const matchesUtensilSearch = [...activeUtensils].every((au) => recipe.ustensils.some((ust) => normalizeText(ust).includes(au)));
 
-    return matchesHeaderSearch && matchesIngredientSearch && matchesappliancesearch && matchesUtensilSearch;
-  });
+    if (matchesHeaderSearch && matchesIngredientSearch && matchesApplianceSearch && matchesUtensilSearch) {
+      acc.push(recipe);
+    }
+
+    return acc;
+  }, []);
 
   updateRecipeResults(filteredRecipes);
   updateDropdownLists(
@@ -35,4 +41,6 @@ function filterRecipes() {
     activeAppliances,
     activeUtensils,
   );
+
+  console.timeEnd('filterRecipes');
 }
