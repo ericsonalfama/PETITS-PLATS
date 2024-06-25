@@ -1,6 +1,8 @@
+/* eslint-disable no-restricted-syntax */
 /* eslint-disable no-undef */
 /* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
+/* eslint-disable no-console */
 //----------------------------------------------------
 // FONCTION POUR RECHERCHER/FILTRER RECETTES
 //----------------------------------------------------
@@ -10,26 +12,56 @@ function filterRecipes() {
   const headerSearch = document.getElementById('headerSearch');
   const headerSearchTerm = normalizeText(headerSearch.value);
 
-  const filteredRecipes = recipes.reduce((acc, recipe) => {
-    const matchesHeaderSearch = !headerSearchTerm
-            || normalizeText(recipe.name).includes(headerSearchTerm)
-            || normalizeText(recipe.description).includes(headerSearchTerm)
-            || recipe.ingredients.some((ing) => normalizeText(ing.ingredient).includes(headerSearchTerm))
-            || normalizeText(recipe.appliance).includes(headerSearchTerm)
-            || recipe.ustensils.some((ust) => normalizeText(ust).includes(headerSearchTerm));
+  const filteredRecipes = [];
+  for (const recipe of recipes) {
+    let matchesHeaderSearch = !headerSearchTerm;
 
-    const matchesIngredientSearch = [...activeIngredients].every((ai) => recipe.ingredients.some((ing) => normalizeText(ing.ingredient).includes(ai)));
-
-    const matchesApplianceSearch = [...activeAppliances].every((ai) => normalizeText(recipe.appliance).includes(ai));
-
-    const matchesUtensilSearch = [...activeUtensils].every((au) => recipe.ustensils.some((ust) => normalizeText(ust).includes(au)));
-
-    if (matchesHeaderSearch && matchesIngredientSearch && matchesApplianceSearch && matchesUtensilSearch) {
-      acc.push(recipe);
+    for (const ing of recipe.ingredients) {
+      matchesHeaderSearch = matchesHeaderSearch || normalizeText(ing.ingredient).includes(headerSearchTerm);
     }
 
-    return acc;
-  }, []);
+    matchesHeaderSearch = matchesHeaderSearch || normalizeText(recipe.appliance).includes(headerSearchTerm);
+
+    for (const ust of recipe.ustensils) {
+      matchesHeaderSearch = matchesHeaderSearch || normalizeText(ust).includes(headerSearchTerm);
+    }
+
+    let matchesIngredientSearch = true;
+    for (const activeIngredient of activeIngredients) {
+      let foundIngredient = false;
+      for (const ing of recipe.ingredients) {
+        if (normalizeText(ing.ingredient).includes(activeIngredient)) {
+          foundIngredient = true;
+          break;
+        }
+      }
+      matchesIngredientSearch = matchesIngredientSearch && foundIngredient;
+      if (!matchesIngredientSearch) {
+        break; // Early exit if no match found
+      }
+    }
+
+    const matchesApplianceSearch = activeAppliances.size === 0 || normalizeText(recipe.appliance).includes([...activeAppliances][0]); // Check for empty set and first element for efficiency
+
+    let matchesUtensilSearch = true;
+    for (const activeUtensil of activeUtensils) {
+      let foundUtensil = false;
+      for (const ust of recipe.ustensils) {
+        if (normalizeText(ust).includes(activeUtensil)) {
+          foundUtensil = true;
+          break;
+        }
+      }
+      matchesUtensilSearch = matchesUtensilSearch && foundUtensil;
+      if (!matchesUtensilSearch) {
+        break; // Early exit if no match found
+      }
+    }
+
+    if (matchesHeaderSearch && matchesIngredientSearch && matchesApplianceSearch && matchesUtensilSearch) {
+      filteredRecipes.push(recipe);
+    }
+  }
 
   updateRecipeResults(filteredRecipes);
   updateDropdownLists(
