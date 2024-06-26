@@ -6,15 +6,10 @@
 // GÉNÉRER ET AFFICHER LES CARTES RECETTES DANS LE DOM
 //----------------------------------------------------
 function generateRecipesCard(recipesArray, recipesSection) {
-  const t0 = performance.now();
-
   recipesArray.forEach((recipe) => {
     const recipeCard = createRecipeCard(recipe);
     recipesSection.appendChild(recipeCard);
   });
-
-  const t1 = performance.now();
-  console.log(`Execution time: ${t1 - t0} milliseconds`);
 }
 
 //-----------------------------------------------------------
