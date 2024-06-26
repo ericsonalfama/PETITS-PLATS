@@ -7,8 +7,6 @@
 // FONCTION POUR RECHERCHER/FILTRER RECETTES
 //----------------------------------------------------
 function filterRecipes() {
-  console.time('filterRecipes');
-
   const headerSearch = document.getElementById('headerSearch');
   const headerSearchTerm = normalizeText(headerSearch.value);
 
@@ -37,11 +35,11 @@ function filterRecipes() {
       }
       matchesIngredientSearch = matchesIngredientSearch && foundIngredient;
       if (!matchesIngredientSearch) {
-        break; // Early exit if no match found
+        break;
       }
     }
 
-    const matchesApplianceSearch = activeAppliances.size === 0 || normalizeText(recipe.appliance).includes([...activeAppliances][0]); // Check for empty set and first element for efficiency
+    const matchesApplianceSearch = activeAppliances.size === 0 || normalizeText(recipe.appliance).includes([...activeAppliances][0]);
 
     let matchesUtensilSearch = true;
     for (const activeUtensil of activeUtensils) {
@@ -54,7 +52,7 @@ function filterRecipes() {
       }
       matchesUtensilSearch = matchesUtensilSearch && foundUtensil;
       if (!matchesUtensilSearch) {
-        break; // Early exit if no match found
+        break;
       }
     }
 

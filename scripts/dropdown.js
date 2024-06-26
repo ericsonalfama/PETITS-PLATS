@@ -29,7 +29,7 @@ function toggleDropdown(dropdown) {
     chevronIcon.classList.remove('fa-chevron-up');
     chevronIcon.classList.add('fa-chevron-down');
   } else {
-    closeOtherDropdowns(dropdown); // Ferme tous les autres dropdowns
+    closeOtherDropdowns(dropdown);
     dropdownMenu.classList.add('show');
     chevronIcon.classList.remove('fa-chevron-down');
     chevronIcon.classList.add('fa-chevron-up');
