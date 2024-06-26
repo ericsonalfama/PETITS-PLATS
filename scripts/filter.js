@@ -1,10 +1,13 @@
 /* eslint-disable no-undef */
 /* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
+/* eslint-disable no-console */
 //----------------------------------------------------
 // FONCTION POUR RECHERCHER/FILTRER RECETTES
 //----------------------------------------------------
 function filterRecipes() {
+  console.time('filterRecipes');
+
   const headerSearch = document.getElementById('headerSearch');
   const headerSearchTerm = normalizeText(headerSearch.value);
 
@@ -35,4 +38,6 @@ function filterRecipes() {
     activeAppliances,
     activeUtensils,
   );
+
+  console.timeEnd('filterRecipes');
 }
