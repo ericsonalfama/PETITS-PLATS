@@ -16,7 +16,6 @@ function normalizeText(text) {
     .join(' ');
 }
 
-// Fonction pour récupérer les appareils
 function getDescription() {
   const allDescriptionsSet = new Set();
   for (const recipe of recipes) {
