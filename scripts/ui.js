@@ -8,14 +8,10 @@
 // GÉNÉRER ET AFFICHER LES CARTES RECETTES DANS LE DOM
 //----------------------------------------------------
 function generateRecipesCard(recipesArray, recipesSection) {
-  console.time('generateRecipesCard');
-
   for (const recipe of recipesArray) {
     const recipeCard = createRecipeCard(recipe);
     recipesSection.appendChild(recipeCard);
   }
-
-  console.timeEnd('generateRecipesCard');
 }
 
 //-----------------------------------------------------------
