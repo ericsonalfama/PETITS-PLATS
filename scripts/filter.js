@@ -8,6 +8,7 @@
 //----------------------------------------------------
 function filterRecipes() {
   console.time('filterRecipes');
+
   const headerSearch = document.getElementById('headerSearch');
   const headerSearchTerm = normalizeText(headerSearch.value);
 
