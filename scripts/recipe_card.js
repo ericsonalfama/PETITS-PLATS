@@ -26,7 +26,7 @@ function createRecipeImageContainer(recipe) {
   imageContainer.classList.add('card_image_container');
 
   const image = document.createElement('img');
-  image.src = `/assets/recipes/${recipe.image}`;
+  image.src = `./assets/recipes/${recipe.image}`;
   image.alt = recipe.name;
 
   const preparationTime = document.createElement('span');
